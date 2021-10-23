@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
     GET_POSTS,
+    GET_POST,
     GET_COMMENTS
 } from './types';
 
@@ -9,6 +10,17 @@ export const getPosts = () => (dispatch) => {
     .then((res) => {
         // console.log('posts', res.data);
         dispatch({ type: GET_POSTS, payload: res.data })
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
+export const getPost = (id) => (dispatch) => {
+    axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    .then((res) => {
+        // console.log('posts', res.data);
+        dispatch({ type: GET_POST, payload: res.data })
     })
     .catch((err) => {
         console.log(err);

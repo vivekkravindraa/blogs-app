@@ -3,7 +3,7 @@ import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import Home from "./components/Home";
-import Comments from "./components/Comments";
+import Post from "./components/Post";
 
 import './assets/styles/App.scss';
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router history={customHistory}>
       <Switch>
-        <Route path="/posts/:id/comments" component={Comments} />
+        <Route path="/posts/:id" component={Post} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>
